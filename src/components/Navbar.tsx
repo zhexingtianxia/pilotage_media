@@ -24,11 +24,11 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-4 md:py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            <Logo className="h-10" />
+            <img src="./logo-square.png" alt="Pilotage Media" className="h-10 md:h-12 w-auto object-contain" />
           </div>
 
           {/* Desktop Menu */}
@@ -48,9 +48,9 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 p-2">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900 p-2 focus:outline-none">
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -63,19 +63,24 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+            className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-2xl absolute w-full"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1">
+            <div className="px-4 pt-4 pb-8 space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#2D63EA] hover:bg-gray-50 rounded-md"
+                  className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-[#2D63EA] hover:bg-blue-50 rounded-xl transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
+              <div className="pt-4 px-2">
+                <button className="w-full bg-[#2D63EA] text-white px-5 py-3.5 rounded-xl text-base font-bold hover:bg-[#1a4bd6] transition-colors shadow-lg shadow-blue-500/30">
+                  合作咨询
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
