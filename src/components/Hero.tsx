@@ -43,13 +43,6 @@ export const Hero = () => {
                 了解更多
               </button>
             </div>
-            
-            <div className="mt-10 md:mt-12 flex flex-wrap justify-center lg:justify-start items-center gap-6 md:gap-8 text-gray-400 opacity-70">
-               <span className="font-bold text-sm md:text-base">禾木家居</span>
-               <span className="font-bold text-sm md:text-base">华硕电脑</span>
-               <span className="font-bold text-sm md:text-base">张金宝酸菜串串</span>
-               <span className="font-bold text-sm md:text-base">金玫瑰大酒店</span>
-            </div>
           </motion.div>
 
           <motion.div
