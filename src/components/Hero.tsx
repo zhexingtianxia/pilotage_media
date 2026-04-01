@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   return (
@@ -33,21 +34,21 @@ export const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <button className="w-full sm:w-auto justify-center bg-[#2D63EA] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1a4bd6] transition-all shadow-xl shadow-blue-500/20 flex items-center gap-2 group">
+              <Link to="/contact" className="w-full sm:w-auto justify-center bg-[#2D63EA] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1a4bd6] transition-all shadow-xl shadow-blue-500/20 flex items-center gap-2 group">
                 立即咨询
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               <button className="w-full sm:w-auto justify-center bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all shadow-md border border-gray-100 flex items-center gap-2">
                 <Play size={20} className="fill-gray-800" />
                 了解更多
               </button>
             </div>
             
-            <div className="mt-10 md:mt-12 flex flex-wrap justify-center lg:justify-start items-center gap-6 md:gap-8 text-gray-400 grayscale opacity-70">
-               <span className="font-bold text-lg md:text-xl">Douyin</span>
-               <span className="font-bold text-lg md:text-xl">Bilibili</span>
-               <span className="font-bold text-lg md:text-xl">Kuaishou</span>
-               <span className="font-bold text-lg md:text-xl">WeChat</span>
+            <div className="mt-10 md:mt-12 flex flex-wrap justify-center lg:justify-start items-center gap-6 md:gap-8 text-gray-400 opacity-70">
+               <span className="font-bold text-sm md:text-base">禾木家居</span>
+               <span className="font-bold text-sm md:text-base">华硕电脑</span>
+               <span className="font-bold text-sm md:text-base">张金宝酸菜串串</span>
+               <span className="font-bold text-sm md:text-base">金玫瑰大酒店</span>
             </div>
           </motion.div>
 

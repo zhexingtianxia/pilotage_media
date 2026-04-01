@@ -1,6 +1,7 @@
 import React from 'react';
 import { Logo } from './Logo';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -8,9 +9,9 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12 lg:mb-16">
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <div className="mb-6 bg-white/10 p-2 rounded-lg inline-block">
+            <Link to="/" className="mb-6 bg-white/10 p-2 rounded-lg inline-block hover:bg-white/20 transition-colors">
                <img src="./logo-horizontal.png" alt="Pilotage Media" className="h-10 sm:h-12 w-auto object-contain" />
-            </div>
+            </Link>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 max-w-sm">
               立足三门峡，辐射全国。<br/>
               做最懂内容的新媒体服务商。
@@ -31,10 +32,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-5 lg:mb-6">快速链接</h4>
             <ul className="space-y-3 lg:space-y-4 text-gray-400 text-sm sm:text-base">
-              <li><a href="#home" className="hover:text-[#2DD876] transition-colors">首页 Home</a></li>
-              <li><a href="#about" className="hover:text-[#2DD876] transition-colors">关于我们 About</a></li>
-              <li><a href="#services" className="hover:text-[#2DD876] transition-colors">业务领域 Services</a></li>
-              <li><a href="#partners" className="hover:text-[#2DD876] transition-colors">合作伙伴 Partners</a></li>
+              <li><a href="/#home" className="hover:text-[#2DD876] transition-colors">首页 Home</a></li>
+              <li><a href="/#about" className="hover:text-[#2DD876] transition-colors">关于我们 About</a></li>
+              <li><a href="/#services" className="hover:text-[#2DD876] transition-colors">业务领域 Services</a></li>
+              <li><a href="/#partners" className="hover:text-[#2DD876] transition-colors">合作伙伴 Partners</a></li>
             </ul>
           </div>
 
@@ -61,9 +62,9 @@ export const Footer = () => {
             <p className="text-gray-400 text-sm sm:text-base mb-4">
               寻找有才华的主播、运营与创意人才。
             </p>
-            <button className="w-full sm:w-auto lg:w-full bg-[#2DD876] text-black font-bold py-3 px-8 rounded-xl hover:bg-[#25b864] transition-colors">
+            <Link to="/contact" className="inline-block text-center w-full sm:w-auto lg:w-full bg-[#2DD876] text-black font-bold py-3 px-8 rounded-xl hover:bg-[#25b864] transition-colors">
               投递简历
-            </button>
+            </Link>
           </div>
         </div>
 
