@@ -77,18 +77,20 @@ export const Cases = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="break-inside-avoid relative group rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-100"
+                className="break-inside-avoid relative group rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-100 block"
               >
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-white font-bold text-xl mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.title}</h3>
-                  <p className="text-white/80 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.desc}</p>
-                </div>
+                <Link to={`/cases/${item.id}`} className="block w-full h-full">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <h3 className="text-white font-bold text-xl mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.title}</h3>
+                    <p className="text-white/80 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.desc}</p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>

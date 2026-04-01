@@ -1,0 +1,107 @@
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
+import { ArrowLeft } from 'lucide-react';
+
+// 模拟案例详情数据
+// 后续您可以将 images 数组中的链接替换为您 public 文件夹中的长图，例如 "/case1-detail.jpg"
+const casesData = {
+  "1": { 
+    title: "抖音账号运营", 
+    desc: "粉丝增长与内容策略", 
+    images: [
+      "https://picsum.photos/seed/case1-detail1/1200/1600",
+      "https://picsum.photos/seed/case1-detail2/1200/1200"
+    ] 
+  },
+  "2": { 
+    title: "直播带货数据", 
+    desc: "单场直播GMV突破", 
+    images: [
+      "https://picsum.photos/seed/case2-detail1/1200/2000"
+    ] 
+  },
+  "3": { 
+    title: "客服沟通案例", 
+    desc: "高效客户转化", 
+    images: [
+      "https://picsum.photos/seed/case3-detail1/1200/1800"
+    ] 
+  },
+  "4": { 
+    title: "品牌合作", 
+    desc: "全案营销策划", 
+    images: [
+      "https://picsum.photos/seed/case4-detail1/1200/1500"
+    ] 
+  },
+  "5": { 
+    title: "短视频爆款", 
+    desc: "千万级播放量", 
+    images: [
+      "https://picsum.photos/seed/case5-detail1/1200/1600"
+    ] 
+  },
+  "6": { 
+    title: "矩阵账号", 
+    desc: "多平台联动", 
+    images: [
+      "https://picsum.photos/seed/case6-detail1/1200/2200"
+    ] 
+  }
+};
+
+export const CaseDetail = () => {
+  const { id } = useParams();
+  const caseInfo = casesData[id as keyof typeof casesData];
+
+  // 每次进入页面时滚动到顶部
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  if (!caseInfo) {
+    return (
+      <div className="font-sans antialiased text-gray-900 bg-slate-50 min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow pt-32 pb-20 px-4 text-center">
+          <h1 className="text-2xl font-bold mb-4">案例未找到</h1>
+          <Link to="/cases" className="text-[#2D63EA] hover:underline">返回案例列表</Link>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="font-sans antialiased text-gray-900 bg-slate-50 min-h-screen flex flex-col selection:bg-[#2D63EA] selection:text-white overflow-x-hidden">
+      <Navbar />
+      
+      <main className="flex-grow pt-28 pb-0">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <Link to="/cases" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#2D63EA] transition-colors mb-6 text-sm font-medium">
+            <ArrowLeft size={16} /> 返回案例列表
+          </Link>
+          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">{caseInfo.title}</h1>
+          <p className="text-lg text-gray-600">{caseInfo.desc}</p>
+        </div>
+        
+        {/* 纯图片排布区域 */}
+        <div className="w-full max-w-4xl mx-auto bg-white shadow-2xl md:rounded-t-3xl overflow-hidden">
+          {caseInfo.images.map((img, idx) => (
+            <img 
+              key={idx} 
+              src={img} 
+              alt={`${caseInfo.title} - 详情图 ${idx + 1}`} 
+              className="w-full h-auto block" 
+              referrerPolicy="no-referrer" 
+            />
+          ))}
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
