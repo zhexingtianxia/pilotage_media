@@ -28,13 +28,13 @@ export const Cases = () => {
     {
       id: 5,
       title: "后台经营效果",
-      desc: "千万级播放量",
+      desc: "成交数据成倍增长",
       img: "/houtai1.png"
     },
     {
       id: 6,
       title: "直播间人气",
-      desc: "多平台联动",
+      desc: "人气爆棚，宣传、成交效果显著",
       img: "/zhibo1.jpg"
     }
   ];
